@@ -1,8 +1,5 @@
+import Integrate
 
-def main():
-    print 'Ok'
-
-
-if __name__ == '__main__':
-    main()
-
+Integrate.simpson_method(1, 2)
+print()
+Integrate.gauss_method(1, 2)
