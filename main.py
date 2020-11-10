@@ -1,6 +1,9 @@
+import integralCalculation
+
 
 def main():
-    print 'Ok!'
+    integralCalculation.trapeze_method()
+    integralCalculation.trapeze_method_modified()
 
 
 if __name__ == '__main__':
