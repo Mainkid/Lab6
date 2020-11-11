@@ -1,7 +1,7 @@
 import math
 
-eps = 10e-8
-var = 24
+EPS = 10e-8
+VAR = 24
 
 
 def print_head():
@@ -13,14 +13,15 @@ def print_res(n, h, integral, est, k):
 
 
 def f(x):
-    if var == 20:
+    if VAR == 20:
         return math.e ** x - x ** 2 + 1
-    elif var == 24:
+    elif VAR == 24:
         return 2 * math.e ** x - 2 * x + 3
     else:
         return 0
 
 
+# Формула Симпсона
 def simpson_formula(a, n, h):
     _sum = 0
     for i in range(n):
@@ -29,6 +30,7 @@ def simpson_formula(a, n, h):
     return _sum
 
 
+# Формула Гаусса
 def gauss_formula(a, n, h):
     k, a02, a1 = 0, 5 / 9, 8 / 9
     _sum = 0
@@ -38,10 +40,12 @@ def gauss_formula(a, n, h):
     return _sum
 
 
+# Оценка погрешности
 def calc_error(curSum, prevSum, tet):
     return (curSum - prevSum) * tet
 
 
+# Эмпирическая оценка порядка аппроксимации
 def calc_k(curSum, s0, s1):
     return math.log(abs((curSum - s0) / (s1 - s0) - 1)) / math.log(0.5)
 
@@ -54,7 +58,7 @@ def simpson_method(a, b):
     s0 = simpson_formula(a, n, h)
     s1 = simpson_formula(a, n * 2, h)
     count = 2
-    while abs(error) > eps:
+    while abs(error) > EPS:
         prevSum = curSum
         h = (b - a) / n
         curSum = simpson_formula(a, n, h)
@@ -76,7 +80,7 @@ def gauss_method(a, b):
     s0 = gauss_formula(a, n, h)
     s1 = gauss_formula(a, n * 2, h)
     count = 0
-    while abs(error) > eps:
+    while abs(error) > EPS:
         prevSum = curSum
         h = (b - a) / n
         curSum = gauss_formula(a, n, h)
