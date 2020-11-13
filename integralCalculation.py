@@ -1,11 +1,10 @@
-# coding=utf-8
-import  math
+import math
 
 
 EPSILON = 0.00000001
 A = 1
 B = 2
-VARIANT =24
+VARIANT = 24
 
 
 
@@ -36,7 +35,6 @@ def f24(x,number_of_dif):
 
 
 def print_head_trapeze():
-    print('Формула трапеций 0')
     print(' N   |   h    | Integral | Оценка погр.  |  k    |')
 
 
@@ -54,6 +52,7 @@ def trapeze_method_error(max_arg):
 
 
 def trapeze_method():
+    print('Формула трапеций 0')
     print_head_trapeze()
     amountOfParts = 1
     prev_trapeze_sum=0
@@ -93,6 +92,7 @@ def trapeze_method():
 
 
 def trapeze_method_modified():
+    print('Формула трапеций 1')
     print_head_trapeze()
     amountOfParts = 1
     prev_trapeze_sum=0
