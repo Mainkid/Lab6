@@ -11,7 +11,7 @@ VARIANT = 24
 
 def f13(x,number_of_dif):
     if (number_of_dif == 0):
-        return 3 ** x + 2*x - 2
+        return 3 ** x + 2*x - 5
     elif (number_of_dif == 1):
         return 2+math.log(3)*(3**x)
     else:
@@ -97,12 +97,19 @@ def trapeze_method_modified():
     amountOfParts = 1
     prev_trapeze_sum=0
     error = 1
-    h = 0
+    h = 1
     k = 0
-    trapezeSum = 0
+
     s1=0
     tmp=0
     s2=0
+    if (VARIANT==13):
+        s1=h * (0.5 * (f13(A, 0) + f13(B, 0))) + h * h * (f13(A, 1) - f13(B, 1)) / 12
+    elif (VARIANT==20):
+        s1= h * (0.5 * (f20(A, 0) + f20(B, 0)) ) + h * h * (f20(A, 1) - f20(B, 1)) / 12
+    elif (VARIANT==24):
+        s1=h * (0.5 * (f24(A, 0) + f24(B, 0)) ) + h * h * (f24(A, 1) - f24(B, 1)) / 12
+    trapezeSum = s1
 
     while abs(error) > EPSILON:
         h = (B-A) / amountOfParts
